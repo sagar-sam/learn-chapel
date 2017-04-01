@@ -89,7 +89,7 @@ for i in r do
 s1.push("sagar");
 t1.stop();
 
-writeln(t1.elapsed()," seconds elapsed using for loop"); 
+writeln(t1.elapsed()," seconds elapsed using list implementation"); 
 
 var t2:Timer;
 t2.start();
@@ -97,4 +97,4 @@ for i in r do
 s3.push("sagar");
 t2.stop();
 
-writeln(t2.elapsed()," seconds elapsed using for loop"); 
+writeln(t2.elapsed()," seconds elapsed using array implementation"); 
