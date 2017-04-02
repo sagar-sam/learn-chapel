@@ -101,6 +101,12 @@ var s3 = new ArrayStack(string);
 
 const r=1..1000000;
 
+
+
+// # CASE 1
+
+writeln("CASE #1");
+
 var t1:Timer;
 t1.start();
 for i in r do 
@@ -117,6 +123,12 @@ t2.stop();
 
 writeln(t2.elapsed()," seconds elapsed during push using array implementation"); 
 
+
+
+
+// # CASE 2
+
+writeln("CASE #2");
 
 var t3: Timer;
 t3.start();
