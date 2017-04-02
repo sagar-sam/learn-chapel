@@ -38,6 +38,17 @@ record ListStack {
     return oldItem;
   }
 
+  proc count(x: itemType) {
+    var result : int =0;
+    var tmp = top;
+    while tmp != nil {
+      if tmp.item==x then
+        result += 1;
+      tmp = tmp.next;
+    }
+    return result;
+  }
+
   // isEmpty method: true if the stack is empty; otherwise false
   proc isEmpty return top == nil;
 }
@@ -71,6 +82,13 @@ record ArrayStack {
     return data(numItems+1);
   }
 
+
+  proc count(x:itemType) {
+    var result : int =0;
+    result = + reduce ([i in 1..numItems] data[i]==x);
+    return result;
+  }
+
   // isEmpty method: true if the stack is empty; otherwise false
   proc isEmpty return numItems == 0;
 }
@@ -86,15 +104,29 @@ const r=1..1000000;
 var t1:Timer;
 t1.start();
 for i in r do 
-s1.push("sagar");
+s1.push("Chapel");
 t1.stop();
 
-writeln(t1.elapsed()," seconds elapsed using list implementation"); 
+writeln(t1.elapsed()," seconds elapsed during push using list implementation"); 
 
 var t2:Timer;
 t2.start();
 for i in r do 
-s3.push("sagar");
+s3.push("Chapel");
 t2.stop();
 
-writeln(t2.elapsed()," seconds elapsed using array implementation"); 
+writeln(t2.elapsed()," seconds elapsed during push using array implementation"); 
+
+
+var t3: Timer;
+t3.start();
+s1.count("Chapel");
+t3.stop();
+writeln(t3.elapsed()," seconds elapsed during count using list implementation"); 
+
+
+var t4: Timer;
+t4.start();
+s3.count("Chapel");
+t4.stop();
+writeln(t4.elapsed()," seconds elapsed during count using array implementation"); 
